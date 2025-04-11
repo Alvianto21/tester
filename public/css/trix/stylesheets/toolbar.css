@@ -1,0 +1,200 @@
+trix-toolbar * {
+  box-sizing: border-box;
+}
+trix-toolbar .trix-button-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  overflow-x: auto;
+}
+trix-toolbar .trix-button-group {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #bbb;
+  border-top-color: #ccc;
+  border-bottom-color: #888;
+  border-radius: 3px;
+}
+trix-toolbar .trix-button-group:not(:first-child) {
+  margin-left: 1.5vw;
+}
+@media (max-width: 768px) {
+  trix-toolbar .trix-button-group:not(:first-child) {
+    margin-left: 0;
+  }
+}
+trix-toolbar .trix-button-group-spacer {
+  flex-grow: 1;
+}
+@media (max-width: 768px) {
+  trix-toolbar .trix-button-group-spacer {
+    display: none;
+  }
+}
+trix-toolbar .trix-button {
+  position: relative;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+  background: transparent;
+}
+trix-toolbar .trix-button:not(:first-child) {
+  border-left: 1px solid #ccc;
+}
+trix-toolbar .trix-button.trix-active {
+  background: #cbeefa;
+  color: rgb(0, 0, 0);
+}
+trix-toolbar .trix-button:not(:disabled) {
+  cursor: pointer;
+}
+trix-toolbar .trix-button:disabled {
+  color: rgba(0, 0, 0, 0.125);
+}
+@media (max-width: 768px) {
+  trix-toolbar .trix-button {
+    letter-spacing: -0.01em;
+    padding: 0 0.3em;
+  }
+}
+trix-toolbar .trix-button--icon {
+  font-size: inherit;
+  width: 2.6em;
+  height: 1.6em;
+  max-width: calc(0.8em + 4vw);
+  text-indent: -9999px;
+}
+@media (max-width: 768px) {
+  trix-toolbar .trix-button--icon {
+    height: 2em;
+    max-width: calc(0.8em + 3.5vw);
+  }
+}
+trix-toolbar .trix-button--icon::before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media (max-width: 768px) {
+  trix-toolbar .trix-button--icon::before {
+    right: 6%;
+    left: 6%;
+  }
+}
+trix-toolbar .trix-button--icon.trix-active::before {
+  opacity: 1;
+}
+trix-toolbar .trix-button--icon:disabled::before {
+  opacity: 0.125;
+}
+trix-toolbar .trix-button--icon-attach::before {
+  background-image: svg("trix/images/attach.svg");
+  top: 8%;
+  bottom: 4%;
+}
+trix-toolbar .trix-button--icon-bold::before {
+  background-image: svg("trix/images/bold.svg");
+}
+trix-toolbar .trix-button--icon-italic::before {
+  background-image: svg("trix/images/italic.svg");
+}
+trix-toolbar .trix-button--icon-link::before {
+  background-image: svg("trix/images/link.svg");
+}
+trix-toolbar .trix-button--icon-strike::before {
+  background-image: svg("trix/images/strike.svg");
+}
+trix-toolbar .trix-button--icon-quote::before {
+  background-image: svg("trix/images/quote.svg");
+}
+trix-toolbar .trix-button--icon-heading-1::before {
+  background-image: svg("trix/images/heading_1.svg");
+}
+trix-toolbar .trix-button--icon-code::before {
+  background-image: svg("trix/images/code.svg");
+}
+trix-toolbar .trix-button--icon-bullet-list::before {
+  background-image: svg("trix/images/bullets.svg");
+}
+trix-toolbar .trix-button--icon-number-list::before {
+  background-image: svg("trix/images/numbers.svg");
+}
+trix-toolbar .trix-button--icon-undo::before {
+  background-image: svg("trix/images/undo.svg");
+}
+trix-toolbar .trix-button--icon-redo::before {
+  background-image: svg("trix/images/redo.svg");
+}
+trix-toolbar .trix-button--icon-decrease-nesting-level::before {
+  background-image: svg("trix/images/nesting_level_decrease.svg");
+}
+trix-toolbar .trix-button--icon-increase-nesting-level::before {
+  background-image: svg("trix/images/nesting_level_increase.svg");
+}
+trix-toolbar .trix-dialogs {
+  position: relative;
+}
+trix-toolbar .trix-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 15px 10px;
+  background: #fff;
+  box-shadow: 0 0.3em 1em #ccc;
+  border-top: 2px solid #888;
+  border-radius: 5px;
+  z-index: 5;
+}
+trix-toolbar .trix-input--dialog {
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0.5em 0.8em;
+  margin: 0 10px 0 0;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+trix-toolbar .trix-input--dialog.validate:invalid {
+  box-shadow: #F00 0px 0px 1.5px 1px;
+}
+trix-toolbar .trix-button--dialog {
+  font-size: inherit;
+  padding: 0.5em;
+  border-bottom: none;
+}
+trix-toolbar .trix-dialog--link {
+  max-width: 600px;
+}
+trix-toolbar .trix-dialog__link-fields {
+  display: flex;
+  align-items: baseline;
+}
+trix-toolbar .trix-dialog__link-fields .trix-input {
+  flex: 1;
+}
+trix-toolbar .trix-dialog__link-fields .trix-button-group {
+  flex: 0 0 content;
+  margin: 0;
+}/*# sourceMappingURL=toolbar.css.map */
